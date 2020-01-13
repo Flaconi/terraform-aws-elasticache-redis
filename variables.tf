@@ -1,19 +1,3 @@
-/*
-# These vars would be used by cloudwatch.tf and should be uncommented if we decide to use them.
-variable "alarm_cpu_threshold" {
-  default = "75"
-}
-
-variable "alarm_memory_threshold" {
-  # 10MB
-  default = "10000000"
-}
-
-variable "alarm_actions" {
-  type = "list"
-}
-*/
-
 variable "apply_immediately" {
   description = "Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is false."
   default     = "false"
@@ -94,6 +78,7 @@ variable "redis_snapshot_retention_limit" {
 
 variable "tags" {
   description = "Tags for redis nodes"
+  type        = map
   default     = {}
 }
 
