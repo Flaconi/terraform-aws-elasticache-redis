@@ -84,4 +84,3 @@ resource "aws_elasticache_subnet_group" "redis_subnet_group" {
   )
   subnet_ids = var.subnets
 }
-

@@ -95,4 +95,3 @@ variable "tags" {
   description = "Tags for redis nodes"
   default     = {}
 }
-
