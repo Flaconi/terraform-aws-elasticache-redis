@@ -1,7 +1,3 @@
-data "aws_vpc" "vpc" {
-  id = var.vpc_id
-}
-
 resource "random_id" "salt" {
   byte_length = 8
 }
@@ -88,4 +84,3 @@ resource "aws_elasticache_subnet_group" "redis_subnet_group" {
   )
   subnet_ids = var.subnets
 }
-

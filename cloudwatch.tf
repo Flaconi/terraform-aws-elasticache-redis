@@ -1,6 +1,6 @@
 # Cloudwatch resources inspired by https://github.com/azavea/terraform-aws-redis-elasticache
 # Stubbing this out, we should have conversation about monitoring before we make this the default behavior
-# For this module 
+# For this module
 /*
 
 resource "aws_cloudwatch_metric_alarm" "cache_cpu" {
