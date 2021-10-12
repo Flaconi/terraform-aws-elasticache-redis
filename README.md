@@ -56,48 +56,62 @@ module "redis" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.26 |
-| aws | >= 3 |
-| random | >= 3.1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | >= 3 |
-| random | >= 3.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3 |
+| <a name="provider_random"></a> [random](#provider\_random) | >= 3.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_elasticache_parameter_group.redis_parameter_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_parameter_group) | resource |
+| [aws_elasticache_replication_group.redis](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group) | resource |
+| [aws_elasticache_subnet_group.redis_subnet_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_subnet_group) | resource |
+| [random_id.salt](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
+| [aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| env | env to deploy into, should typically dev/staging/prod | `string` | n/a | yes |
-| name | Name for the Redis replication group i.e. UserObject | `string` | n/a | yes |
-| redis\_clusters | Number of Redis cache clusters (nodes) to create | `number` | n/a | yes |
-| subnets | List of VPC Subnet IDs for the cache subnet group | `list(string)` | n/a | yes |
-| vpc\_id | VPC ID | `string` | n/a | yes |
-| allowed\_cidr | A list of Security Group ID's to allow access to. | `list(string)` | <pre>[<br>  "127.0.0.1/32"<br>]</pre> | no |
-| apply\_immediately | Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is false. | `bool` | `false` | no |
-| redis\_failover | Specifies whether cluster should perform automatic fail-over | `bool` | `false` | no |
-| redis\_maintenance\_window | Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period | `string` | `"fri:08:00-fri:09:00"` | no |
-| redis\_node\_type | Instance type to use for creating the Redis cache clusters | `string` | `"cache.t2.micro"` | no |
-| redis\_parameters | additional parameters modifyed in parameter group | `list(string)` | `[]` | no |
-| redis\_port | Which port redis will be listening on | `number` | `6379` | no |
-| redis\_snapshot\_retention\_limit | The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a snapshot\_retention\_limit is not supported on cache.t1.micro or cache.t2.\* cache nodes | `number` | `0` | no |
-| redis\_snapshot\_window | The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period | `string` | `"06:30-07:30"` | no |
-| redis\_version | Redis version to use, defaults to 3.2.10 | `string` | `"3.2.10"` | no |
-| security\_groups | A list of Security Group ID's to allow access to. | `list(string)` | `[]` | no |
-| tags | Tags for redis nodes | `map(string)` | `{}` | no |
+| <a name="input_env"></a> [env](#input\_env) | env to deploy into, should typically dev/staging/prod | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name for the Redis replication group i.e. UserObject | `string` | n/a | yes |
+| <a name="input_redis_clusters"></a> [redis\_clusters](#input\_redis\_clusters) | Number of Redis cache clusters (nodes) to create | `number` | n/a | yes |
+| <a name="input_subnets"></a> [subnets](#input\_subnets) | List of VPC Subnet IDs for the cache subnet group | `list(string)` | n/a | yes |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | n/a | yes |
+| <a name="input_allowed_cidr"></a> [allowed\_cidr](#input\_allowed\_cidr) | A list of Security Group ID's to allow access to. | `list(string)` | <pre>[<br>  "127.0.0.1/32"<br>]</pre> | no |
+| <a name="input_apply_immediately"></a> [apply\_immediately](#input\_apply\_immediately) | Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is false. | `bool` | `false` | no |
+| <a name="input_redis_failover"></a> [redis\_failover](#input\_redis\_failover) | Specifies whether cluster should perform automatic fail-over | `bool` | `false` | no |
+| <a name="input_redis_maintenance_window"></a> [redis\_maintenance\_window](#input\_redis\_maintenance\_window) | Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period | `string` | `"fri:08:00-fri:09:00"` | no |
+| <a name="input_redis_node_type"></a> [redis\_node\_type](#input\_redis\_node\_type) | Instance type to use for creating the Redis cache clusters | `string` | `"cache.t2.micro"` | no |
+| <a name="input_redis_parameters"></a> [redis\_parameters](#input\_redis\_parameters) | additional parameters modifyed in parameter group | `list(string)` | `[]` | no |
+| <a name="input_redis_port"></a> [redis\_port](#input\_redis\_port) | Which port redis will be listening on | `number` | `6379` | no |
+| <a name="input_redis_snapshot_retention_limit"></a> [redis\_snapshot\_retention\_limit](#input\_redis\_snapshot\_retention\_limit) | The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a snapshot\_retention\_limit is not supported on cache.t1.micro or cache.t2.* cache nodes | `number` | `0` | no |
+| <a name="input_redis_snapshot_window"></a> [redis\_snapshot\_window](#input\_redis\_snapshot\_window) | The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period | `string` | `"06:30-07:30"` | no |
+| <a name="input_redis_version"></a> [redis\_version](#input\_redis\_version) | Redis version to use, defaults to 3.2.10 | `string` | `"3.2.10"` | no |
+| <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | A list of Security Group ID's to allow access to. | `list(string)` | `[]` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags for redis nodes | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| endpoint | n/a |
-| id | n/a |
-| parameter\_group | n/a |
-| port | n/a |
-| redis\_subnet\_group\_name | n/a |
+| <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | n/a |
+| <a name="output_id"></a> [id](#output\_id) | n/a |
+| <a name="output_parameter_group"></a> [parameter\_group](#output\_parameter\_group) | n/a |
+| <a name="output_port"></a> [port](#output\_port) | n/a |
+| <a name="output_redis_subnet_group_name"></a> [redis\_subnet\_group\_name](#output\_redis\_subnet\_group\_name) | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
