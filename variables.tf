@@ -67,8 +67,8 @@ variable "vpc_id" {
 }
 
 variable "redis_parameters" {
-  type        = list(string)
-  description = "additional parameters modifyed in parameter group"
+  type        = list(map(string))
+  description = "Additional parameters modified in parameter group"
   default     = []
 }
 
