@@ -44,7 +44,7 @@ variable "redis_parameters" {
 }
 
 module "redis" {
-  source           = "github.com/terraform-community-modules/tf_aws_elasticache_redis?ref=v1.3.0"
+  source           = "github.com/Flaconi/terraform-aws-elasticache-redis?ref=v0.2.0"
   ...
   redis_parameters = "${var.redis_parameters}"
   ...
@@ -92,6 +92,7 @@ No modules.
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | n/a | yes |
 | <a name="input_allowed_cidr"></a> [allowed\_cidr](#input\_allowed\_cidr) | A list of Security Group ID's to allow access to. | `list(string)` | <pre>[<br>  "127.0.0.1/32"<br>]</pre> | no |
 | <a name="input_apply_immediately"></a> [apply\_immediately](#input\_apply\_immediately) | Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is false. | `bool` | `false` | no |
+| <a name="input_multi_az_enabled"></a> [multi\_az\_enabled](#input\_multi\_az\_enabled) | Specifies whether to enable Multi-AZ Support for the replication group | `bool` | `false` | no |
 | <a name="input_redis_failover"></a> [redis\_failover](#input\_redis\_failover) | Specifies whether cluster should perform automatic fail-over | `bool` | `false` | no |
 | <a name="input_redis_maintenance_window"></a> [redis\_maintenance\_window](#input\_redis\_maintenance\_window) | Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period | `string` | `"fri:08:00-fri:09:00"` | no |
 | <a name="input_redis_node_type"></a> [redis\_node\_type](#input\_redis\_node\_type) | Instance type to use for creating the Redis cache clusters | `string` | `"cache.t2.micro"` | no |

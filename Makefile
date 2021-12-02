@@ -20,7 +20,7 @@ FL_IGNORE_PATHS = .git/,.github/,.idea/
 # -------------------------------------------------------------------------------------------------
 # Terraform-docs configuration
 # -------------------------------------------------------------------------------------------------
-TFDOCS_VERSION = 0.15.0-0.29
+TFDOCS_VERSION = 0.16.0-0.31
 
 # Adjust your delimiter here or overwrite via make arguments
 TFDOCS_DELIM_START = <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
