@@ -108,7 +108,10 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_cluster_enabled"></a> [cluster\_enabled](#output\_cluster\_enabled) | n/a |
 | <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | n/a |
+| <a name="output_endpoint_config"></a> [endpoint\_config](#output\_endpoint\_config) | n/a |
+| <a name="output_endpoint_ro"></a> [endpoint\_ro](#output\_endpoint\_ro) | n/a |
 | <a name="output_id"></a> [id](#output\_id) | n/a |
 | <a name="output_parameter_group"></a> [parameter\_group](#output\_parameter\_group) | n/a |
 | <a name="output_port"></a> [port](#output\_port) | n/a |
