@@ -7,7 +7,8 @@ resource "aws_elasticache_replication_group" "redis" {
   replication_group_description = "Terraform-managed ElastiCache replication group for ${var.name}-${var.env}-${data.aws_vpc.vpc.tags["Name"]}"
   number_cache_clusters         = var.redis_clusters
   node_type                     = var.redis_node_type
-  automatic_failover_enabled    = var.redis_failover
+  automatic_failover_enabled    = var.redis_clusters > 1 ? var.redis_failover : false
+  multi_az_enabled              = (var.redis_failover && var.redis_clusters > 1) ? var.multi_az_enabled : false
   engine_version                = var.redis_version
   port                          = var.redis_port
   parameter_group_name          = aws_elasticache_parameter_group.redis_parameter_group.id

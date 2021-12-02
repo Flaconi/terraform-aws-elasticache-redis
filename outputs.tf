@@ -17,3 +17,15 @@ output "port" {
 output "endpoint" {
   value = aws_elasticache_replication_group.redis.primary_endpoint_address
 }
+
+output "endpoint_ro" {
+  value = aws_elasticache_replication_group.redis.reader_endpoint_address
+}
+
+output "endpoint_config" {
+  value = aws_elasticache_replication_group.redis.configuration_endpoint_address
+}
+
+output "cluster_enabled" {
+  value = aws_elasticache_replication_group.redis.cluster_enabled
+}

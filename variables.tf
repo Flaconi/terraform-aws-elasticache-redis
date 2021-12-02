@@ -37,6 +37,12 @@ variable "redis_failover" {
   default     = false
 }
 
+variable "multi_az_enabled" {
+  type        = bool
+  description = "Specifies whether to enable Multi-AZ Support for the replication group"
+  default     = false
+}
+
 variable "redis_node_type" {
   type        = string
   description = "Instance type to use for creating the Redis cache clusters"
