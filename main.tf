@@ -3,21 +3,21 @@ resource "random_id" "salt" {
 }
 
 resource "aws_elasticache_replication_group" "redis" {
-  replication_group_id          = format("%.20s", "${var.name}-${var.env}")
-  replication_group_description = "Terraform-managed ElastiCache replication group for ${var.name}-${var.env}-${data.aws_vpc.vpc.tags["Name"]}"
-  number_cache_clusters         = var.redis_clusters
-  node_type                     = var.redis_node_type
-  automatic_failover_enabled    = var.redis_clusters > 1 ? var.redis_failover : false
-  multi_az_enabled              = (var.redis_failover && var.redis_clusters > 1) ? var.multi_az_enabled : false
-  engine_version                = var.redis_version
-  port                          = var.redis_port
-  parameter_group_name          = aws_elasticache_parameter_group.redis_parameter_group.id
-  subnet_group_name             = aws_elasticache_subnet_group.redis_subnet_group.id
-  security_group_ids            = var.security_groups
-  apply_immediately             = var.apply_immediately
-  maintenance_window            = var.redis_maintenance_window
-  snapshot_window               = var.redis_snapshot_window
-  snapshot_retention_limit      = var.redis_snapshot_retention_limit
+  replication_group_id       = format("%.20s", "${var.name}-${var.env}")
+  description                = "Terraform-managed ElastiCache replication group for ${var.name}-${var.env}-${data.aws_vpc.vpc.tags["Name"]}"
+  num_cache_clusters         = var.redis_clusters
+  node_type                  = var.redis_node_type
+  automatic_failover_enabled = var.redis_clusters > 1 ? var.redis_failover : false
+  multi_az_enabled           = (var.redis_failover && var.redis_clusters > 1) ? var.multi_az_enabled : false
+  engine_version             = var.redis_version
+  port                       = var.redis_port
+  parameter_group_name       = aws_elasticache_parameter_group.redis_parameter_group.id
+  subnet_group_name          = aws_elasticache_subnet_group.redis_subnet_group.id
+  security_group_ids         = var.security_groups
+  apply_immediately          = var.apply_immediately
+  maintenance_window         = var.redis_maintenance_window
+  snapshot_window            = var.redis_snapshot_window
+  snapshot_retention_limit   = var.redis_snapshot_retention_limit
   tags = merge(
     {
       "Name" = format(
